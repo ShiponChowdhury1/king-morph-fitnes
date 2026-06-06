@@ -1,0 +1,11 @@
+export { default as Navbar } from "./Navbar";
+export { default as HeroSection } from "./HeroSection";
+export { default as TaglineSection } from "./TaglineSection";
+export { default as FeaturesSection } from "./FeaturesSection";
+export { default as MattersSection } from "./MattersSection";
+export { default as PrecisionSection } from "./PrecisionSection";
+export { default as NutritionSection } from "./NutritionSection";
+export { default as IntegrationSection } from "./IntegrationSection";
+export { default as ShopSection } from "./ShopSection";
+export { default as ContactSection } from "./ContactSection";
+export { default as Footer } from "./Footer";
