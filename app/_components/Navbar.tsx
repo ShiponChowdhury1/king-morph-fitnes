@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaSun, FaMoon, FaBars, FaTimes, FaSearch, FaHeart, FaShoppingBag } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
-import { allProducts } from "../data/products";
+import { allProducts } from "../data/data";
 
 const navLinks = [
   { label: "Home", href: "/" },

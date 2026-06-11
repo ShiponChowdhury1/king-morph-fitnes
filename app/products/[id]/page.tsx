@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { FaHeart, FaShoppingBag, FaStar, FaChevronLeft, FaChevronRight, FaCheck } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
 import { Navbar, Footer } from "../../_components";
-import { allProducts, Product } from "../../data/products";
+import { allProducts, Product } from "../../data/data";
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -404,8 +404,18 @@ export default function ProductDetailPage() {
                         sizes="(max-width: 768px) 50vw, 25vw"
                       />
                     </Link>
-                    <button className="wishlist-btn" aria-label="Add to wishlist">
-                      <FaHeart size={14} />
+                    <button
+                      className="wishlist-btn"
+                      onClick={() => toggleWishlist(p)}
+                      style={{ color: isInWishlist(p.id) ? "var(--accent)" : "inherit" }}
+                      aria-label="Add to wishlist"
+                    >
+                      <FaHeart
+                        size={14}
+                        fill={isInWishlist(p.id) ? "var(--accent)" : "none"}
+                        stroke="currentColor"
+                        strokeWidth={isInWishlist(p.id) ? "0" : "2"}
+                      />
                     </button>
                   </div>
                   <div className="product-info">

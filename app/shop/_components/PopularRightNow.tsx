@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaHeart, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useRef } from "react";
-import { allProducts } from "../../data/products";
+import { allProducts } from "../../data/data";
 import { useCart } from "../../context/CartContext";
 
 export default function PopularRightNow() {

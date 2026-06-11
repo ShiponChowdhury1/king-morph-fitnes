@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
-import { allProducts } from "../data/products";
+import { allProducts } from "../data/data";
+import { useCart } from "../context/CartContext";
 
 export default function ShopSection() {
+  const { toggleWishlist, isInWishlist } = useCart();
+  
   // Show first 8 products on the homepage
   const homepageProducts = allProducts.slice(0, 8);
 
@@ -32,8 +37,18 @@ export default function ShopSection() {
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </Link>
-              <button className="wishlist-btn" aria-label="Add to wishlist">
-                <FaHeart size={14} />
+              <button
+                className="wishlist-btn"
+                onClick={() => toggleWishlist(product)}
+                style={{ color: isInWishlist(product.id) ? "var(--accent)" : "inherit" }}
+                aria-label="Add to wishlist"
+              >
+                <FaHeart
+                  size={14}
+                  fill={isInWishlist(product.id) ? "var(--accent)" : "none"}
+                  stroke="currentColor"
+                  strokeWidth={isInWishlist(product.id) ? "0" : "2"}
+                />
               </button>
             </div>
             <div className="product-info">
@@ -54,3 +69,4 @@ export default function ShopSection() {
     </section>
   );
 }
+

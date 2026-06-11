@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaShoppingBag } from "react-icons/fa";
-import { allProducts } from "../../data/products";
+import { FaShoppingBag, FaHeart } from "react-icons/fa";
+import { allProducts } from "../../data/data";
 import { useCart } from "../../context/CartContext";
 
 export default function MensCollection() {
-  const { addToCart } = useCart();
+  const { addToCart, toggleWishlist, isInWishlist } = useCart();
   // Filter only men's clothes (IDs 9 to 16)
   const mensProducts = allProducts.filter((p) => p.category === "men" && p.id >= 9 && p.id <= 16);
 
@@ -32,6 +32,18 @@ export default function MensCollection() {
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </Link>
+                <button
+                  className="wishlist-btn"
+                  onClick={() => toggleWishlist(product)}
+                  style={{ color: isInWishlist(product.id) ? "var(--accent)" : "inherit" }}
+                  aria-label="Add to wishlist"
+                >
+                  <FaHeart
+                    fill={isInWishlist(product.id) ? "var(--accent)" : "none"}
+                    stroke="currentColor"
+                    strokeWidth={isInWishlist(product.id) ? "0" : "2"}
+                  />
+                </button>
                 <button
                   className="add-to-cart-btn"
                   onClick={() => addToCart(product, 1)}

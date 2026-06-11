@@ -6,13 +6,15 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { FaHeart, FaFilter, FaTh, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import { Navbar, Footer } from "../_components";
-import { allProducts, Product } from "../data/products";
+import { allProducts, Product } from "../data/data";
+import { useCart } from "../context/CartContext";
 
 const ITEMS_PER_PAGE = 8;
 
 function ProductsContent() {
   const searchParams = useSearchParams();
   const searchParam = searchParams.get("search") || "";
+  const { toggleWishlist, isInWishlist } = useCart();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -183,8 +185,18 @@ function ProductsContent() {
                       sizes="(max-width: 768px) 50vw, 25vw"
                     />
                   </Link>
-                  <button className="wishlist-btn" aria-label="Add to wishlist">
-                    <FaHeart size={14} />
+                  <button
+                    className="wishlist-btn"
+                    onClick={() => toggleWishlist(product)}
+                    style={{ color: isInWishlist(product.id) ? "var(--accent)" : "inherit" }}
+                    aria-label="Add to wishlist"
+                  >
+                    <FaHeart
+                      size={14}
+                      fill={isInWishlist(product.id) ? "var(--accent)" : "none"}
+                      stroke="currentColor"
+                      strokeWidth={isInWishlist(product.id) ? "0" : "2"}
+                    />
                   </button>
                 </div>
                 <div className="product-info">

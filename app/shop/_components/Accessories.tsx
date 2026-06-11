@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaShoppingBag } from "react-icons/fa";
-import { allProducts } from "../../data/products";
+import { FaShoppingBag, FaHeart } from "react-icons/fa";
+import { allProducts } from "../../data/data";
 import { useCart } from "../../context/CartContext";
 
 export default function Accessories() {
-  const { addToCart } = useCart();
+  const { addToCart, toggleWishlist, isInWishlist } = useCart();
   // Filter accessories (IDs 21 to 24)
   const accessoriesProducts = allProducts.filter((p) => p.category === "accessories");
 
@@ -33,6 +33,18 @@ export default function Accessories() {
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </Link>
+                <button
+                  className="wishlist-btn"
+                  onClick={() => toggleWishlist(item)}
+                  style={{ color: isInWishlist(item.id) ? "var(--accent)" : "inherit" }}
+                  aria-label="Add to wishlist"
+                >
+                  <FaHeart
+                    fill={isInWishlist(item.id) ? "var(--accent)" : "none"}
+                    stroke="currentColor"
+                    strokeWidth={isInWishlist(item.id) ? "0" : "2"}
+                  />
+                </button>
                 <button
                   className="add-to-cart-btn"
                   onClick={() => addToCart(item, 1)}
