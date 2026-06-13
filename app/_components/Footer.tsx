@@ -25,13 +25,13 @@ export default function Footer() {
           <h4>Product</h4>
           <ul>
             <li>
-              <Link href="#features">Features</Link>
+              <Link href="/#features">Features</Link>
             </li>
             <li>
-              <Link href="#how-it-works">How It Works</Link>
+              <Link href="/how-it-works">How It Works</Link>
             </li>
             <li>
-              <Link href="#shop">Shop</Link>
+              <Link href="/shop">Shop</Link>
             </li>
             <li>
               <Link href="#">Pricing</Link>
@@ -43,10 +43,10 @@ export default function Footer() {
           <h4>Support</h4>
           <ul>
             <li>
-              <Link href="#faq">FAQ</Link>
+              <Link href="/faq">FAQ</Link>
             </li>
             <li>
-              <Link href="#contact">Contact</Link>
+              <Link href="/contact">Contact</Link>
             </li>
             <li>
               <Link href="#">Support Center</Link>
