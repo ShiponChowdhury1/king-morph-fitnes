@@ -25,7 +25,7 @@ export default function Footer() {
           <h4>Product</h4>
           <ul>
             <li>
-              <Link href="/#features">Features</Link>
+              <Link href="/features">Features</Link>
             </li>
             <li>
               <Link href="/how-it-works">How It Works</Link>

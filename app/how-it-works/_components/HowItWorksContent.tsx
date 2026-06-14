@@ -345,7 +345,7 @@ export default function HowItWorksContent() {
           </p>
           <div>
             <Link
-              href="/#features"
+              href="/features"
               className="btn-primary"
               style={{
                 backgroundColor: "var(--text-primary)",

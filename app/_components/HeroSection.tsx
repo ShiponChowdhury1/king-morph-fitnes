@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -26,9 +27,9 @@ export default function HeroSection() {
         </p>
 
         <div className="hero-buttons">
-          <a href="#features" className="btn-primary">
+          <Link href="/features" className="btn-primary">
             Get Started Now
-          </a>
+          </Link>
           <a href="#precision" className="btn-secondary">
             Download the App
           </a>
