@@ -437,9 +437,21 @@ export default function SignInPage() {
       <style jsx global>{`
         .auth-input-field:-webkit-autofill,
         .auth-input-field:-webkit-autofill:hover, 
-        .auth-input-field:-webkit-autofill:focus, 
-        .auth-input-field:-webkit-autofill:active {
+        .auth-input-field:-webkit-autofill:active,
+        .auth-input-field:autofill,
+        .auth-input-field:autofill:hover, 
+        .auth-input-field:autofill:active {
+          border: 1px solid var(--border-light) !important;
           -webkit-box-shadow: 0 0 0 1000px var(--bg-secondary) inset !important;
+          box-shadow: 0 0 0 1000px var(--bg-secondary) inset !important;
+          -webkit-text-fill-color: var(--text-primary) !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+        .auth-input-field:-webkit-autofill:focus,
+        .auth-input-field:autofill:focus {
+          border-color: var(--accent) !important;
+          -webkit-box-shadow: 0 0 0 3px var(--accent-alpha), 0 0 0 1000px var(--bg-secondary) inset !important;
+          box-shadow: 0 0 0 3px var(--accent-alpha), 0 0 0 1000px var(--bg-secondary) inset !important;
           -webkit-text-fill-color: var(--text-primary) !important;
           transition: background-color 5000s ease-in-out 0s;
         }

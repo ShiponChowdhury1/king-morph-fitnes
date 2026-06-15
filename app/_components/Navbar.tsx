@@ -34,12 +34,14 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [profileOpen, setProfileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   
   // Search Overlay states
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     
@@ -111,21 +113,11 @@ export default function Navbar() {
         <div className="navbar-container">
           <Link href="/" className="navbar-logo" style={{ display: "flex", alignItems: "center" }}>
             <Image
-              src="/images/logoDark.png"
+              src={!mounted ? "/images/logoLight.png" : (theme === "light" ? "/images/logoDark.png" : "/images/logoLight.png")}
               alt="KingMorph Logo"
               width={160}
               height={32}
               priority
-              className="logo-dark"
-              style={{ height: "32px", width: "auto", objectFit: "contain" }}
-            />
-            <Image
-              src="/images/logoLight.png"
-              alt="KingMorph Logo"
-              width={160}
-              height={32}
-              priority
-              className="logo-light"
               style={{ height: "32px", width: "auto", objectFit: "contain" }}
             />
           </Link>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -69,25 +72,39 @@ const Youtube = ({ size = 14 }: { size?: number }) => (
 );
 
 export default function Footer() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    // Determine initial theme
+    const isLight = document.documentElement.classList.contains("light");
+    setTheme(isLight ? "light" : "dark");
+
+    // Observe changes on <html> attributes to keep in sync
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          const isLightNow = document.documentElement.classList.contains("light");
+          setTheme(isLightNow ? "light" : "dark");
+        }
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <footer className="footer" id="footer">
       <div className="footer-container">
         <div className="footer-brand">
           <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
             <Image
-              src="/images/logoDark.png"
+              src={!mounted ? "/images/logoLight.png" : (theme === "light" ? "/images/logoDark.png" : "/images/logoLight.png")}
               alt="KingMorph Logo"
               width={160}
               height={32}
-              className="logo-dark"
-              style={{ height: "32px", width: "auto", objectFit: "contain" }}
-            />
-            <Image
-              src="/images/logoLight.png"
-              alt="KingMorph Logo"
-              width={160}
-              height={32}
-              className="logo-light"
               style={{ height: "32px", width: "auto", objectFit: "contain" }}
             />
           </div>
