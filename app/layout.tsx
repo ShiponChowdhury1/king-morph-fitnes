@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     "personalized",
     "AI coaching",
   ],
+  icons: {
+    icon: "/images/logoLight.png",
+    shortcut: "/images/logoLight.png",
+    apple: "/images/logoLight.png",
+  },
 };
 
 import { CartProvider } from "./context/CartContext";

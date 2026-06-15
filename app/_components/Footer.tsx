@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Facebook = ({ size = 14 }: { size?: number }) => (
   <svg
@@ -72,9 +73,24 @@ export default function Footer() {
     <footer className="footer" id="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <h3>
-            KING<span>MORPH</span>
-          </h3>
+          <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+            <Image
+              src="/images/logoDark.png"
+              alt="KingMorph Logo"
+              width={160}
+              height={32}
+              className="logo-dark"
+              style={{ height: "32px", width: "auto", objectFit: "contain" }}
+            />
+            <Image
+              src="/images/logoLight.png"
+              alt="KingMorph Logo"
+              width={160}
+              height={32}
+              className="logo-light"
+              style={{ height: "32px", width: "auto", objectFit: "contain" }}
+            />
+          </div>
           <p>
             Train smarter based on your unique body type. Personalized workout
             and nutrition plans designed for real results.

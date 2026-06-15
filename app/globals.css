@@ -3919,6 +3919,21 @@ html.light .contact-form-card {
   }
 }
 
+/* Logo toggling based on active theme class */
+.logo-dark {
+  display: none !important;
+}
+.logo-light {
+  display: block !important;
+}
+
+html.light .logo-dark {
+  display: block !important;
+}
+html.light .logo-light {
+  display: none !important;
+}
+
 
 
 
