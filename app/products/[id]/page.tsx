@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { FaHeart, FaShoppingBag, FaStar, FaChevronLeft, FaChevronRight, FaCheck } from "react-icons/fa";
+import { Heart, ShoppingBag, Star, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import { Navbar, Footer } from "../../_components";
 import { allProducts, Product } from "../../data/data";
@@ -123,7 +123,7 @@ export default function ProductDetailPage() {
                   onClick={() => scrollThumbnails("left")}
                   aria-label="Scroll gallery left"
                 >
-                  <FaChevronLeft size={14} />
+                  <ChevronLeft size={14} />
                 </button>
                 
                 <div className="thumbnails-track" ref={thumbnailsTrackRef}>
@@ -149,7 +149,7 @@ export default function ProductDetailPage() {
                   onClick={() => scrollThumbnails("right")}
                   aria-label="Scroll gallery right"
                 >
-                  <FaChevronRight size={14} />
+                  <ChevronRight size={14} />
                 </button>
               </div>
             )}
@@ -163,10 +163,11 @@ export default function ProductDetailPage() {
               <div className="details-meta" style={{ marginTop: 12 }}>
                 <div className="rating-stars">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <FaStar
+                    <Star
                       key={i}
                       size={14}
-                      color={i < Math.floor(product.rating) ? "#ffb800" : "var(--border-light)"}
+                      fill={i < Math.floor(product.rating) ? "#ffb800" : "none"}
+                      stroke={i < Math.floor(product.rating) ? "#ffb800" : "var(--border-light)"}
                     />
                   ))}
                   <span className="rating-text" style={{ marginLeft: 4 }}>
@@ -243,7 +244,7 @@ export default function ProductDetailPage() {
                   className="add-to-cart-large-btn"
                   onClick={() => addToCart(product, quantity, selectedSize, selectedColor)}
                 >
-                  <FaShoppingBag size={16} />
+                  <ShoppingBag size={16} />
                   Add to cart
                 </button>
                 <button
@@ -251,7 +252,7 @@ export default function ProductDetailPage() {
                   onClick={() => toggleWishlist(product)}
                   style={{ color: wishlistActive ? "var(--accent)" : "var(--text-primary)" }}
                 >
-                  <FaHeart size={16} fill={wishlistActive ? "var(--accent)" : "none"} stroke="currentColor" strokeWidth={wishlistActive ? "0" : "2"} />
+                  <Heart size={16} fill={wishlistActive ? "var(--accent)" : "none"} stroke={wishlistActive ? "var(--accent)" : "currentColor"} strokeWidth={2} />
                   {wishlistActive ? "Added to wishlist" : "Add to wishlist"}
                 </button>
               </div>
@@ -294,7 +295,7 @@ export default function ProductDetailPage() {
                     {product.features.map((feat, index) => (
                       <div key={index} className="features-list-item">
                         <div className="features-list-icon">
-                          <FaCheck size={10} />
+                          <Check size={10} />
                         </div>
                         <span>{feat}</span>
                       </div>
@@ -359,10 +360,11 @@ export default function ProductDetailPage() {
                           <h4 className="review-author-name">{rev.author}</h4>
                           <div className="rating-stars">
                             {Array.from({ length: 5 }).map((_, i) => (
-                              <FaStar
+                              <Star
                                 key={i}
                                 size={12}
-                                color={i < rev.rating ? "#ffb800" : "var(--border-light)"}
+                                fill={i < rev.rating ? "#ffb800" : "none"}
+                                stroke={i < rev.rating ? "#ffb800" : "var(--border-light)"}
                               />
                             ))}
                           </div>
@@ -410,11 +412,11 @@ export default function ProductDetailPage() {
                       style={{ color: isInWishlist(p.id) ? "var(--accent)" : "inherit" }}
                       aria-label="Add to wishlist"
                     >
-                      <FaHeart
-                        size={14}
+                      <Heart
+                        size={16}
                         fill={isInWishlist(p.id) ? "var(--accent)" : "none"}
-                        stroke="currentColor"
-                        strokeWidth={isInWishlist(p.id) ? "0" : "2"}
+                        stroke={isInWishlist(p.id) ? "var(--accent)" : "currentColor"}
+                        strokeWidth={2}
                       />
                     </button>
                   </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { FaHeart, FaFilter, FaTh, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import { Heart, Filter, LayoutGrid, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Navbar, Footer } from "../_components";
 import { allProducts, Product } from "../data/data";
 import { useCart } from "../context/CartContext";
@@ -142,7 +142,7 @@ function ProductsContent() {
         <div className="products-filter-bar">
           <div className="filter-tabs">
             <button className="filter-tab active" onClick={openDrawer}>
-              <FaFilter size={12} />
+              <Filter size={12} />
               Filters
             </button>
             {(priceRanges.length > 0 || collection || size || category) && (
@@ -154,7 +154,7 @@ function ProductsContent() {
           <div className="filter-meta">
             <span className="product-count">{filteredProducts.length} Results</span>
             <button className="grid-toggle" aria-label="Grid view">
-              <FaTh size={16} />
+              <LayoutGrid size={16} />
             </button>
           </div>
         </div>
@@ -191,11 +191,11 @@ function ProductsContent() {
                     style={{ color: isInWishlist(product.id) ? "var(--accent)" : "inherit" }}
                     aria-label="Add to wishlist"
                   >
-                    <FaHeart
-                      size={14}
+                    <Heart
+                      size={16}
                       fill={isInWishlist(product.id) ? "var(--accent)" : "none"}
-                      stroke="currentColor"
-                      strokeWidth={isInWishlist(product.id) ? "0" : "2"}
+                      stroke={isInWishlist(product.id) ? "var(--accent)" : "currentColor"}
+                      strokeWidth={2}
                     />
                   </button>
                 </div>
@@ -224,7 +224,7 @@ function ProductsContent() {
               disabled={currentPage === 1}
               aria-label="Previous page"
             >
-              <FaChevronLeft size={12} />
+              <ChevronLeft size={12} />
               Previous
             </button>
 
@@ -247,7 +247,7 @@ function ProductsContent() {
               aria-label="Next page"
             >
               Next
-              <FaChevronRight size={12} />
+              <ChevronRight size={12} />
             </button>
           </div>
         )}
@@ -263,7 +263,7 @@ function ProductsContent() {
         <div className="filter-drawer-header">
           <h2>Filter</h2>
           <button className="filter-drawer-close" onClick={() => setIsDrawerOpen(false)} aria-label="Close Filter">
-            <FaTimes />
+            <X size={20} />
           </button>
         </div>
 

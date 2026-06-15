@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface FAQItem {
   question: string;
@@ -89,7 +89,7 @@ export default function FAQContent() {
                 >
                   <span>{item.question}</span>
                   <span className="accordion-icon">
-                    {isOpen ? <FaChevronUp size={14} /> : <FaChevronDown size={14} />}
+                    {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                   </span>
                 </button>
                 <div className="accordion-content">

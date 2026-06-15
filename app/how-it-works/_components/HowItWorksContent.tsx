@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCheck } from "react-icons/fa";
+import { Check } from "lucide-react";
 
 export default function HowItWorksContent() {
   const [formData, setFormData] = useState({
@@ -195,7 +195,7 @@ export default function HowItWorksContent() {
                           justifyContent: "center",
                           fontSize: "11px"
                         }}>
-                          <FaCheck size={10} />
+                          <Check size={10} />
                         </span>
                       </span>
                       <span>{feat}</span>
@@ -232,7 +232,7 @@ export default function HowItWorksContent() {
                               justifyContent: "center",
                               fontSize: "11px"
                             }}>
-                              <FaCheck size={10} />
+                              <Check size={10} />
                             </span>
                           </span>
                           <span>{feat}</span>
@@ -283,7 +283,7 @@ export default function HowItWorksContent() {
                               justifyContent: "center",
                               fontSize: "11px"
                             }}>
-                              <FaCheck size={10} />
+                              <Check size={10} />
                             </span>
                           </span>
                           <span>{feat}</span>

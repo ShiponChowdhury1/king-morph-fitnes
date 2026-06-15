@@ -1,38 +1,38 @@
-import { FaDna, FaDumbbell, FaAppleAlt, FaUtensils, FaChartLine, FaShoppingBag } from "react-icons/fa";
+import { Dna, Dumbbell, Apple, Utensils, LineChart, ShoppingBag } from "lucide-react";
 
 const features = [
   {
-    icon: <FaDna size={24} />,
+    icon: <Dna size={24} />,
     title: "Morphology Identification",
     description:
       "Discover your unique body type through our advanced quiz system.",
   },
   {
-    icon: <FaDumbbell size={24} />,
+    icon: <Dumbbell size={24} />,
     title: "Personalized Training",
     description:
       "Custom workout plans designed specifically for your body type and goals.",
   },
   {
-    icon: <FaAppleAlt size={24} />,
+    icon: <Apple size={24} />,
     title: "Nutrition Tracking",
     description:
       "Track macros and calories with guidance tailored to your morphology.",
   },
   {
-    icon: <FaUtensils size={24} />,
+    icon: <Utensils size={24} />,
     title: "Custom Recipes",
     description:
       "Access hundreds of recipes optimized for your nutritional needs.",
   },
   {
-    icon: <FaChartLine size={24} />,
+    icon: <LineChart size={24} />,
     title: "Progress Monitoring",
     description:
       "Visualize your transformation with detailed analytics and insights.",
   },
   {
-    icon: <FaShoppingBag size={24} />,
+    icon: <ShoppingBag size={24} />,
     title: "Fitness Shop",
     description:
       "Shop curated supplements, apparel, and equipment for your journey.",

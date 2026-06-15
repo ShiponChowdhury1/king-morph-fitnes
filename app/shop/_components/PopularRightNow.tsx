@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaHeart, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 import { allProducts } from "../../data/data";
 import { useCart } from "../../context/CartContext";
@@ -35,10 +35,10 @@ export default function PopularRightNow() {
           </div>
           <div className="slider-controls">
             <button className="slider-btn" onClick={() => scroll("left")} aria-label="Previous">
-              <FaChevronLeft />
+              <ChevronLeft size={20} />
             </button>
             <button className="slider-btn" onClick={() => scroll("right")} aria-label="Next">
-              <FaChevronRight />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
@@ -62,7 +62,12 @@ export default function PopularRightNow() {
                   style={{ color: isInWishlist(product.id) ? "var(--accent)" : "inherit" }}
                   aria-label="Add to wishlist"
                 >
-                  <FaHeart fill={isInWishlist(product.id) ? "var(--accent)" : "none"} stroke="currentColor" strokeWidth={isInWishlist(product.id) ? "0" : "2"} />
+                  <Heart
+                    size={16}
+                    fill={isInWishlist(product.id) ? "var(--accent)" : "none"}
+                    stroke={isInWishlist(product.id) ? "var(--accent)" : "currentColor"}
+                    strokeWidth={2}
+                  />
                 </button>
               </div>
               <div className="product-info">

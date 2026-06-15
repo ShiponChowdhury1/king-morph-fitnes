@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { FaCheckCircle } from "react-icons/fa";
+import { CheckCircle } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -57,15 +57,15 @@ export default function IntegrationSection() {
 
           <ul className="check-list">
             <li>
-              <span className="check-icon"><FaCheckCircle size={16} /></span>
+              <span className="check-icon"><CheckCircle size={16} /></span>
               Curated product selection
             </li>
             <li>
-              <span className="check-icon"><FaCheckCircle size={16} /></span>
+              <span className="check-icon"><CheckCircle size={16} /></span>
               Exclusive discounts
             </li>
             <li>
-              <span className="check-icon"><FaCheckCircle size={16} /></span>
+              <span className="check-icon"><CheckCircle size={16} /></span>
               Wide variety of collections
             </li>
           </ul>

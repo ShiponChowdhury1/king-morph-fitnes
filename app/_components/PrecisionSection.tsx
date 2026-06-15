@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { Apple, Play } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -56,14 +56,14 @@ export default function PrecisionSection() {
           </h2>
           <div className="app-store-buttons">
             <a href="#" className="store-btn">
-              <FaApple size={24} />
+              <Apple size={24} />
               <div className="store-btn-text">
                 <small>Download on the</small>
                 <span>App Store</span>
               </div>
             </a>
             <a href="#" className="store-btn">
-              <FaGooglePlay size={22} />
+              <Play size={22} fill="currentColor" />
               <div className="store-btn-text">
                 <small>GET IT ON</small>
                 <span>Google Play</span>

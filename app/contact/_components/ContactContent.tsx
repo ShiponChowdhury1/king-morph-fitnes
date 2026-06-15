@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactContent() {
   const [formData, setFormData] = useState({
@@ -106,7 +106,7 @@ export default function ContactContent() {
           <div className="contact-info-cards">
             <div className="info-card">
               <div className="info-card-icon">
-                <FaEnvelope size={18} />
+                <Mail size={18} />
               </div>
               <div className="info-card-text">
                 <h4>Email</h4>
@@ -117,7 +117,7 @@ export default function ContactContent() {
 
             <div className="info-card">
               <div className="info-card-icon">
-                <FaPhoneAlt size={18} />
+                <Phone size={18} />
               </div>
               <div className="info-card-text">
                 <h4>Phone</h4>
@@ -128,7 +128,7 @@ export default function ContactContent() {
 
             <div className="info-card">
               <div className="info-card-icon">
-                <FaMapMarkerAlt size={18} />
+                <MapPin size={18} />
               </div>
               <div className="info-card-text">
                 <h4>Office</h4>
@@ -139,7 +139,7 @@ export default function ContactContent() {
 
             <div className="info-card">
               <div className="info-card-icon">
-                <FaClock size={18} />
+                <Clock size={18} />
               </div>
               <div className="info-card-text">
                 <h4>Support Hours</h4>

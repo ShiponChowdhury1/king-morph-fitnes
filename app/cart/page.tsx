@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaTrash, FaPlus, FaMinus, FaChevronLeft, FaTimes } from "react-icons/fa";
+import { Plus, Minus, ChevronLeft, X } from "lucide-react";
 import { Navbar, Footer } from "../_components";
 import { useCart } from "../context/CartContext";
 
@@ -78,7 +78,7 @@ export default function CartPage() {
                               onClick={() => updateQuantity(item.product.id, item.size, item.color, item.quantity - 1)}
                               style={{ border: "none", background: "none", color: "var(--text-primary)", cursor: "pointer", padding: "8px 12px", display: "flex", alignItems: "center", justifyContent: "center" }}
                             >
-                              <FaMinus size={10} />
+                              <Minus size={10} />
                             </button>
                             <span style={{ padding: "0 12px", minWidth: "32px", fontSize: "14px", fontWeight: 600, color: "var(--text-primary)", textAlign: "center" }}>
                               {item.quantity}
@@ -87,7 +87,7 @@ export default function CartPage() {
                               onClick={() => updateQuantity(item.product.id, item.size, item.color, item.quantity + 1)}
                               style={{ border: "none", background: "none", color: "var(--text-primary)", cursor: "pointer", padding: "8px 12px", display: "flex", alignItems: "center", justifyContent: "center" }}
                             >
-                              <FaPlus size={10} />
+                              <Plus size={10} />
                             </button>
                           </div>
                         </td>
@@ -102,7 +102,7 @@ export default function CartPage() {
                             style={{ border: "none", background: "none", color: "var(--text-secondary)", cursor: "pointer", padding: "4px" }}
                             aria-label="Remove item"
                           >
-                            <FaTimes size={16} />
+                            <X size={16} />
                           </button>
                         </td>
                       </tr>
@@ -113,7 +113,7 @@ export default function CartPage() {
 
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "20px", alignItems: "center" }}>
                 <Link href="/shop" style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--text-primary)", textDecoration: "none", fontWeight: 600, fontSize: "14px" }}>
-                  <FaChevronLeft size={12} />
+                  <ChevronLeft size={12} />
                   Return to shop
                 </Link>
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCheck, FaUser, FaDumbbell, FaAppleAlt, FaUtensils, FaChartLine, FaShoppingBag } from "react-icons/fa";
+import { Check, User, Dumbbell, Apple, Utensils, LineChart, ShoppingBag } from "lucide-react";
 
 export default function FeaturesContent() {
   const [formData, setFormData] = useState({
@@ -25,32 +25,32 @@ export default function FeaturesContent() {
 
   const moreFeatures = [
     {
-      icon: <FaUser size={22} />,
+      icon: <User size={22} />,
       title: "Morphology Identification",
       desc: "Discover your unique body type through our advanced quiz system.",
     },
     {
-      icon: <FaDumbbell size={22} />,
+      icon: <Dumbbell size={22} />,
       title: "Personalized Training",
       desc: "Custom workout plans designed specifically for your body type and goals.",
     },
     {
-      icon: <FaAppleAlt size={22} />,
+      icon: <Apple size={22} />,
       title: "Nutrition Tracking",
       desc: "Track macros and calories with guidance tailored to your morphology.",
     },
     {
-      icon: <FaUtensils size={22} />,
+      icon: <Utensils size={22} />,
       title: "Custom Recipes",
       desc: "Access hundreds of recipes optimized for your nutritional needs.",
     },
     {
-      icon: <FaChartLine size={22} />,
+      icon: <LineChart size={22} />,
       title: "Progress Monitoring",
       desc: "Visualize your transformation with detailed analytics and insights.",
     },
     {
-      icon: <FaShoppingBag size={22} />,
+      icon: <ShoppingBag size={22} />,
       title: "Fitness Shop",
       desc: "Shop curated supplements, apparel, and equipment for your journey.",
     },
@@ -134,7 +134,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>15-minute comprehensive assessment</span>
@@ -152,7 +152,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Science-based methodology</span>
@@ -170,7 +170,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Accurate body type identification</span>
@@ -188,7 +188,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Personalized recommendations</span>
@@ -223,7 +223,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Body type-optimized exercises</span>
@@ -241,7 +241,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Progressive overload protocols</span>
@@ -259,7 +259,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Video demonstrations</span>
@@ -277,7 +277,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Flexible scheduling</span>
@@ -309,7 +309,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Morphology-based macro targets</span>
@@ -327,7 +327,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Meal logging and scanning</span>
@@ -345,7 +345,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Macro and micronutrient tracking</span>
@@ -363,7 +363,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Smart suggestions</span>
@@ -408,7 +408,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Large library of curated recipes</span>
@@ -426,7 +426,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Dietary preference filters</span>
@@ -444,7 +444,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Nutritional breakdowns</span>
@@ -479,7 +479,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Weight and measurement tracking</span>
@@ -497,7 +497,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Progress photos</span>
@@ -515,7 +515,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Performance analytics</span>
@@ -533,7 +533,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Achievement milestones</span>
@@ -575,7 +575,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Curated product selection</span>
@@ -593,7 +593,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Exclusive discounts</span>
@@ -611,7 +611,7 @@ export default function FeaturesContent() {
                     justifyContent: "center",
                     fontSize: "11px"
                   }}>
-                    <FaCheck size={10} />
+                    <Check size={10} />
                   </span>
                 </span>
                 <span>Wide verity of collections</span>

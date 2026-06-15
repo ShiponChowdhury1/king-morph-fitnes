@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaSun, FaMoon, FaBars, FaTimes, FaSearch, FaHeart, FaShoppingBag } from "react-icons/fa";
+import { Sun, Moon, Menu, X, Search, Heart, ShoppingBag, User, LogOut } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { allProducts } from "../data/data";
 
@@ -26,11 +26,14 @@ export default function Navbar() {
     setWishlistOpen,
     removeFromCart,
     toggleWishlist,
+    user,
+    setUser,
   } = useCart();
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [profileOpen, setProfileOpen] = useState(false);
   
   // Search Overlay states
   const [searchOpen, setSearchOpen] = useState(false);
@@ -126,7 +129,7 @@ export default function Navbar() {
               aria-label="Search products"
               style={{ background: "none", outline: "none", cursor: "pointer" }}
             >
-              <FaSearch size={18} />
+              <Search size={18} />
             </button>
 
             <button
@@ -135,7 +138,7 @@ export default function Navbar() {
               aria-label="Wishlist"
               style={{ background: "none", border: "none", outline: "none", cursor: "pointer", position: "relative" }}
             >
-              <FaHeart size={18} />
+              <Heart size={18} />
               {wishlistItems.length > 0 && (
                 <span className="cart-badge" style={{ backgroundColor: "var(--accent)" }}>{wishlistItems.length}</span>
               )}
@@ -147,7 +150,7 @@ export default function Navbar() {
               aria-label="Shopping bag"
               style={{ background: "none", border: "none", outline: "none", cursor: "pointer", position: "relative" }}
             >
-              <FaShoppingBag size={18} />
+              <ShoppingBag size={18} />
               {cartItems.reduce((acc, item) => acc + item.quantity, 0) > 0 && (
                 <span className="cart-badge">
                   {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
@@ -155,24 +158,206 @@ export default function Navbar() {
               )}
             </button>
 
+            {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               className="navbar-icon-btn"
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-label="Toggle Theme"
             >
-              {theme === "dark" ? <FaSun size={18} /> : <FaMoon size={18} />}
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <a href="#" className="navbar-signin">
-              Sign In
-            </a>
+            {user.isLoggedIn ? (
+              <div className="navbar-profile-container" style={{ position: "relative", display: "flex", alignItems: "center" }}>
+                <button
+                  onClick={() => setProfileOpen(!profileOpen)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    outline: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    padding: 0,
+                    borderRadius: "50%",
+                    overflow: "hidden"
+                  }}
+                  aria-label="User profile"
+                >
+                  <div style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: "2px solid var(--accent)",
+                    position: "relative"
+                  }}>
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  </div>
+                </button>
+
+                {profileOpen && (
+                  <>
+                    <div 
+                      onClick={() => setProfileOpen(false)}
+                      style={{
+                        position: "fixed",
+                        inset: 0,
+                        zIndex: 998,
+                        background: "transparent"
+                      }}
+                    />
+                    
+                    <div
+                      className="profile-dropdown"
+                      style={{
+                        position: "absolute",
+                        right: 0,
+                        top: "calc(100% + 16px)",
+                        width: "280px",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "12px",
+                        boxShadow: "0 10px 40px rgba(0, 0, 0, 0.15)",
+                        padding: "24px",
+                        zIndex: 999,
+                        border: "1px solid #eaeaea",
+                        color: "#000000"
+                      }}
+                    >
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", overflow: "hidden", position: "relative", flexShrink: 0 }}>
+                          <img src={user.avatar} alt={user.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        </div>
+                        <div style={{ overflow: "hidden", textAlign: "left" }}>
+                          <h4 style={{ fontSize: "14px", fontWeight: 700, margin: "0 0 2px 0", color: "#000000", fontFamily: "var(--font-inter)" }}>
+                            {user.name}
+                          </h4>
+                          <p style={{ fontSize: "12px", color: "#666666", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                            {user.email}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div style={{ height: "1px", backgroundColor: "#eaeaea", margin: "14px 0" }} />
+
+                      <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                        <Link 
+                          href="/profile?tab=profile" 
+                          onClick={() => setProfileOpen(false)}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            color: "#000000",
+                            textDecoration: "none",
+                            fontSize: "13px",
+                            fontWeight: 700,
+                            letterSpacing: "0.5px",
+                            fontFamily: "var(--font-inter)"
+                          }}
+                        >
+                          <User size={14} style={{ color: "#000000" }} />
+                          PROFILE
+                        </Link>
+
+                        <button 
+                          onClick={() => {
+                            setProfileOpen(false);
+                            setCartOpen(true);
+                          }}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            padding: 0,
+                            margin: 0,
+                            cursor: "pointer",
+                            width: "100%",
+                            textAlign: "left",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            color: "#000000",
+                            fontSize: "13px",
+                            fontWeight: 700,
+                            letterSpacing: "0.5px",
+                            fontFamily: "var(--font-inter)"
+                          }}
+                        >
+                          <ShoppingBag size={14} style={{ color: "#000000" }} />
+                          CART ({cartItems.reduce((acc, item) => acc + item.quantity, 0)})
+                        </button>
+
+                        <Link 
+                          href="/profile?tab=saved" 
+                          onClick={() => setProfileOpen(false)}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            color: "#000000",
+                            textDecoration: "none",
+                            fontSize: "13px",
+                            fontWeight: 700,
+                            letterSpacing: "0.5px",
+                            fontFamily: "var(--font-inter)"
+                          }}
+                        >
+                          <Heart size={14} style={{ color: "#000000" }} />
+                          SAVED ITEMS
+                        </Link>
+                      </div>
+
+                      <div style={{ height: "1px", backgroundColor: "#eaeaea", margin: "14px 0" }} />
+
+                      <button
+                        onClick={() => {
+                          setUser({ ...user, isLoggedIn: false });
+                          setProfileOpen(false);
+                        }}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          padding: 0,
+                          margin: 0,
+                          cursor: "pointer",
+                          width: "100%",
+                          textAlign: "left",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                          color: "#000000",
+                          fontSize: "13px",
+                          fontWeight: 700,
+                          letterSpacing: "0.5px",
+                          fontFamily: "var(--font-inter)"
+                        }}
+                      >
+                        <LogOut size={14} style={{ color: "#000000" }} />
+                        SIGN OUT
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/signin"
+                className="navbar-signin"
+              >
+                Sign In
+              </Link>
+            )}
 
             <button
               className="navbar-mobile-toggle"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle navigation menu"
             >
-              {mobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -186,7 +371,7 @@ export default function Navbar() {
           aria-label="Close navigation menu"
           style={{ position: "absolute", top: 24, right: 24 }}
         >
-          <FaTimes size={24} />
+          <X size={24} />
         </button>
         {navLinks.map((link) => (
           <Link key={link.label} href={link.href} onClick={handleLinkClick}>
@@ -204,7 +389,7 @@ export default function Navbar() {
             aria-label="Search"
             style={{ background: "none", outline: "none", cursor: "pointer" }}
           >
-            <FaSearch size={18} />
+            <Search size={18} />
           </button>
           <button
             onClick={() => {
@@ -215,7 +400,7 @@ export default function Navbar() {
             aria-label="Wishlist"
             style={{ background: "none", border: "none", outline: "none", cursor: "pointer", position: "relative" }}
           >
-            <FaHeart size={18} />
+            <Heart size={18} />
             {wishlistItems.length > 0 && (
               <span className="cart-badge" style={{ backgroundColor: "var(--accent)" }}>{wishlistItems.length}</span>
             )}
@@ -229,7 +414,7 @@ export default function Navbar() {
             aria-label="Cart"
             style={{ background: "none", border: "none", outline: "none", cursor: "pointer", position: "relative" }}
           >
-            <FaShoppingBag size={18} />
+            <ShoppingBag size={18} />
             {cartItems.reduce((acc, item) => acc + item.quantity, 0) > 0 && (
               <span className="cart-badge">
                 {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
@@ -248,20 +433,30 @@ export default function Navbar() {
             style={{ marginRight: 0, padding: "12px 24px", border: "1px solid var(--border-light)", width: "100%", borderRadius: "var(--radius-full)" }}
           >
             {theme === "dark" ? (
-              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><FaSun size={16} /> Light Mode</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Sun size={16} /> Light Mode</span>
             ) : (
-              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><FaMoon size={16} /> Dark Mode</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Moon size={16} /> Dark Mode</span>
             )}
           </button>
           
-          <a
-            href="#"
+          <Link
+            href="/signin"
             className="navbar-signin"
-            style={{ display: "block", textAlign: "center", width: 140 }}
+            style={{ 
+              display: "block", 
+              textAlign: "center", 
+              width: 140, 
+              textDecoration: "none",
+              color: theme === "light" ? "#ffffff" : "#000000",
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "14px",
+              fontWeight: 600,
+              letterSpacing: "normal"
+            }}
             onClick={handleLinkClick}
           >
             Sign In
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -307,7 +502,7 @@ export default function Navbar() {
               boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
             }}
           >
-            <FaSearch size={20} style={{ color: "var(--text-secondary)" }} />
+            <Search size={20} style={{ color: "var(--text-secondary)" }} />
             <input
               type="text"
               placeholder="Search products..."
@@ -342,7 +537,7 @@ export default function Navbar() {
                 transition: "transform 0.2s",
               }}
             >
-              <FaTimes size={22} />
+              <X size={22} />
             </button>
           </div>
 
@@ -425,7 +620,7 @@ export default function Navbar() {
                       textAlign: "left",
                     }}
                   >
-                    <FaSearch size={12} style={{ color: "var(--text-muted)" }} />
+                    <Search size={12} style={{ color: "var(--text-muted)" }} />
                     <span>{suggestion}</span>
                   </button>
                 ))}
@@ -632,7 +827,7 @@ export default function Navbar() {
               padding: "4px",
             }}
           >
-            <FaTimes size={20} />
+            <X size={20} />
           </button>
         </div>
 
@@ -715,7 +910,7 @@ export default function Navbar() {
                     }}
                     aria-label="Remove item"
                   >
-                    <FaTimes size={16} />
+                    <X size={16} />
                   </button>
                 </div>
               ))}
@@ -850,7 +1045,7 @@ export default function Navbar() {
               padding: "4px",
             }}
           >
-            <FaTimes size={20} />
+            <X size={20} />
           </button>
         </div>
 
@@ -933,7 +1128,7 @@ export default function Navbar() {
                     }}
                     aria-label="Remove item"
                   >
-                    <FaTimes size={16} />
+                    <X size={16} />
                   </button>
                 </div>
               ))}

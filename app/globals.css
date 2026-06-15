@@ -310,6 +310,7 @@ body {
   letter-spacing: 2px;
 }
 
+
 @media (max-width: 768px) {
   .navbar-links { display: none; }
   .navbar-signin { display: none; }

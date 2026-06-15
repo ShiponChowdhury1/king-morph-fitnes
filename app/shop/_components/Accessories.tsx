@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaShoppingBag, FaHeart } from "react-icons/fa";
+import { Heart, ShoppingBag } from "lucide-react";
 import { allProducts } from "../../data/data";
 import { useCart } from "../../context/CartContext";
 
@@ -39,10 +39,11 @@ export default function Accessories() {
                   style={{ color: isInWishlist(item.id) ? "var(--accent)" : "inherit" }}
                   aria-label="Add to wishlist"
                 >
-                  <FaHeart
+                  <Heart
+                    size={16}
                     fill={isInWishlist(item.id) ? "var(--accent)" : "none"}
-                    stroke="currentColor"
-                    strokeWidth={isInWishlist(item.id) ? "0" : "2"}
+                    stroke={isInWishlist(item.id) ? "var(--accent)" : "currentColor"}
+                    strokeWidth={2}
                   />
                 </button>
                 <button
@@ -50,7 +51,7 @@ export default function Accessories() {
                   onClick={() => addToCart(item, 1)}
                   aria-label="Add to cart"
                 >
-                  <FaShoppingBag />
+                  <ShoppingBag size={16} />
                 </button>
               </div>
               <div className="product-info">
