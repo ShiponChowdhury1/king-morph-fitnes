@@ -238,7 +238,7 @@ function ProfileContent() {
   };
 
   return (
-    <div style={{ backgroundColor: "#f8f9fa", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg-secondary)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* Main Content Area */}
@@ -274,7 +274,7 @@ function ProfileContent() {
           zIndex: 10
         }}>
           <div style={{
-            backgroundColor: "#ffffff",
+            backgroundColor: "var(--bg-card)",
             borderRadius: "16px",
             boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
             padding: "24px 32px",
@@ -282,7 +282,8 @@ function ProfileContent() {
             flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: "24px"
+            gap: "24px",
+            border: "1px solid var(--border-color)"
           }} className="profile-header-card">
             
             {/* Avatar & Info */}
@@ -292,10 +293,10 @@ function ProfileContent() {
                   width: "130px",
                   height: "130px",
                   borderRadius: "50%",
-                  border: "6px solid #ffffff",
+                  border: "6px solid var(--bg-card)",
                   overflow: "hidden",
                   boxShadow: "0 8px 20px rgba(0, 0, 0, 0.1)",
-                  backgroundColor: "#ffffff"
+                  backgroundColor: "var(--bg-card)"
                 }}>
                   <Image 
                     src={user.avatar} 
@@ -311,8 +312,8 @@ function ProfileContent() {
                     position: "absolute",
                     bottom: "4px",
                     right: "4px",
-                    backgroundColor: "#000000",
-                    color: "#ffffff",
+                    backgroundColor: "var(--text-primary)",
+                    color: "var(--bg-primary)",
                     border: "none",
                     borderRadius: "50%",
                     width: "36px",
@@ -330,14 +331,14 @@ function ProfileContent() {
               </div>
 
               <div style={{ textAlign: "left" }}>
-                <h2 style={{ fontSize: "28px", fontWeight: 800, color: "#000000", margin: "0 0 4px 0", fontFamily: "var(--font-inter)" }}>
+                <h2 style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-primary)", margin: "0 0 4px 0", fontFamily: "var(--font-inter)" }}>
                   {user.name}
                 </h2>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center" }}>
-                  <span style={{ fontSize: "14px", color: "#666666", display: "flex", alignItems: "center", gap: "6px" }}>
+                  <span style={{ fontSize: "14px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "6px" }}>
                     <Mail size={12} /> {user.email}
                   </span>
-                  <span style={{ height: "4px", width: "4px", borderRadius: "50%", backgroundColor: "#cccccc" }} />
+                  <span style={{ height: "4px", width: "4px", borderRadius: "50%", backgroundColor: "var(--border-color)" }} />
                   <span style={{ fontSize: "14px", color: "#10b981", fontWeight: 700 }}>
                     Active Member
                   </span>
@@ -348,17 +349,17 @@ function ProfileContent() {
             {/* Stats Overview */}
             <div style={{ display: "flex", gap: "24px" }} className="profile-stats">
               <div style={{ textAlign: "center" }}>
-                <span style={{ display: "block", fontSize: "22px", fontWeight: 800, color: "#000000" }}>
+                <span style={{ display: "block", fontSize: "22px", fontWeight: 800, color: "var(--text-primary)" }}>
                   {orders.length}
                 </span>
-                <span style={{ fontSize: "12px", color: "#666666", textTransform: "uppercase", fontWeight: 700 }}>Orders</span>
+                <span style={{ fontSize: "12px", color: "var(--text-secondary)", textTransform: "uppercase", fontWeight: 700 }}>Orders</span>
               </div>
-              <div style={{ width: "1px", backgroundColor: "#eaeaea" }} />
+              <div style={{ width: "1px", backgroundColor: "var(--border-color)" }} />
               <div style={{ textAlign: "center" }}>
-                <span style={{ display: "block", fontSize: "22px", fontWeight: 800, color: "#000000" }}>
+                <span style={{ display: "block", fontSize: "22px", fontWeight: 800, color: "var(--text-primary)" }}>
                   {wishlistItems.length}
                 </span>
-                <span style={{ fontSize: "12px", color: "#666666", textTransform: "uppercase", fontWeight: 700 }}>Wishlist</span>
+                <span style={{ fontSize: "12px", color: "var(--text-secondary)", textTransform: "uppercase", fontWeight: 700 }}>Wishlist</span>
               </div>
             </div>
 
@@ -377,9 +378,9 @@ function ProfileContent() {
           {/* Left Sidebar Navigation */}
           <aside style={{ width: "260px", flexShrink: 0 }} className="profile-sidebar">
             <div style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: "var(--bg-card)",
               borderRadius: "16px",
-              border: "1px solid #e0e0e0",
+              border: "1px solid var(--border-color)",
               padding: "24px 16px",
               display: "flex",
               flexDirection: "column",
@@ -406,8 +407,8 @@ function ProfileContent() {
                       padding: "14px 18px",
                       borderRadius: "8px",
                       border: "none",
-                      backgroundColor: isActive ? "#000000" : "transparent",
-                      color: isActive ? "#ffffff" : "#4b5563",
+                      backgroundColor: isActive ? "var(--text-primary)" : "transparent",
+                      color: isActive ? "var(--bg-primary)" : "var(--text-secondary)",
                       fontSize: "14px",
                       fontWeight: 700,
                       cursor: "pointer",
@@ -433,22 +434,22 @@ function ProfileContent() {
             {/* 1. PROFILE PANEL */}
             {activeTab === "profile" && (
               <div style={{
-                backgroundColor: "#ffffff",
+                backgroundColor: "var(--bg-card)",
                 borderRadius: "16px",
-                border: "1px solid #e0e0e0",
+                border: "1px solid var(--border-color)",
                 padding: "36px",
                 textAlign: "left"
               }}>
-                <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", marginBottom: "8px", fontFamily: "var(--font-inter)" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px", fontFamily: "var(--font-inter)" }}>
                   Personal Information
                 </h3>
-                <p style={{ fontSize: "14px", color: "#666666", marginBottom: "32px" }}>
+                <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "32px" }}>
                   Update your personal details and contact details below.
                 </p>
 
                 {isSavedMessage && (
                   <div style={{
-                    backgroundColor: "#e8f8f0",
+                    backgroundColor: "rgba(16, 185, 129, 0.1)",
                     color: "#10b981",
                     padding: "12px 18px",
                     borderRadius: "6px",
@@ -463,44 +464,44 @@ function ProfileContent() {
                 <form onSubmit={handleSaveProfile} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }} className="grid-2-col">
                     <div>
-                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>Full Name</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>Full Name</label>
                       <input 
                         type="text" 
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none" }}
+                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid var(--border-light)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none" }}
                       />
                     </div>
                     <div>
-                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>Email Address</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>Email Address</label>
                       <input 
                         type="email" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none" }}
+                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid var(--border-light)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none" }}
                       />
                     </div>
                   </div>
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }} className="grid-2-col">
                     <div>
-                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>Phone Number</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>Phone Number</label>
                       <input 
                         type="tel" 
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none" }}
+                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid var(--border-light)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none" }}
                       />
                     </div>
                     <div>
-                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>Country</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>Country</label>
                       <input 
                         type="text" 
                         value={country}
                         onChange={(e) => setCountry(e.target.value)}
-                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none" }}
+                        style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid var(--border-light)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none" }}
                       />
                     </div>
                   </div>
@@ -509,8 +510,8 @@ function ProfileContent() {
                     <button
                       type="submit"
                       style={{
-                        backgroundColor: "#000000",
-                        color: "#ffffff",
+                        backgroundColor: "var(--text-primary)",
+                        color: "var(--bg-primary)",
                         padding: "14px 40px",
                         borderRadius: "30px",
                         fontWeight: 700,
@@ -533,24 +534,24 @@ function ProfileContent() {
             {activeTab === "orders" && (
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 <div style={{ textAlign: "left" }}>
-                  <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", margin: "0 0 8px 0" }}>Active Orders</h3>
-                  <p style={{ fontSize: "14px", color: "#666666", margin: 0 }}>Track and manage your current deliveries.</p>
+                  <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 8px 0" }}>Active Orders</h3>
+                  <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0 }}>Track and manage your current deliveries.</p>
                 </div>
 
                 {activeOrders.length === 0 ? (
                   <div style={{
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "var(--bg-card)",
                     borderRadius: "16px",
-                    border: "1px solid #e0e0e0",
+                    border: "1px solid var(--border-color)",
                     padding: "60px 24px",
                     textAlign: "center"
                   }}>
-                    <PackageOpen size={48} color="#cccccc" style={{ marginBottom: "16px" }} />
-                    <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>No active orders</h3>
-                    <p style={{ fontSize: "14px", color: "#666666", marginBottom: "24px" }}>
+                    <PackageOpen size={48} color="var(--text-secondary)" style={{ marginBottom: "16px" }} />
+                    <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>No active orders</h3>
+                    <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "24px" }}>
                       Any active items shipped or in process will appear here.
                     </p>
-                    <Link href="/shop" style={{ display: "inline-block", backgroundColor: "#000000", color: "#ffffff", padding: "12px 30px", borderRadius: "30px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
+                    <Link href="/shop" style={{ display: "inline-block", backgroundColor: "var(--text-primary)", color: "var(--bg-primary)", padding: "12px 30px", borderRadius: "30px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
                       Browse Shop
                     </Link>
                   </div>
@@ -559,17 +560,17 @@ function ProfileContent() {
                     const isExpanded = expandedOrderId === order.id;
                     return (
                       <div key={order.id} style={{
-                        backgroundColor: "#ffffff",
+                        backgroundColor: "var(--bg-card)",
                         borderRadius: "12px",
-                        border: "1px solid #e0e0e0",
+                        border: "1px solid var(--border-color)",
                         overflow: "hidden",
                         textAlign: "left"
                       }}>
                         {/* Header */}
                         <div style={{
-                          backgroundColor: "#f9fafb",
+                          backgroundColor: "var(--bg-secondary)",
                           padding: "20px 24px",
-                          borderBottom: "1px solid #e0e0e0",
+                          borderBottom: "1px solid var(--border-color)",
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
@@ -578,16 +579,16 @@ function ProfileContent() {
                         }}>
                           <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
                             <div>
-                              <span style={{ fontSize: "12px", color: "#666666", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Date</span>
-                              <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000" }}>{order.date}</span>
+                              <span style={{ fontSize: "12px", color: "var(--text-secondary)", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Date</span>
+                              <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>{order.date}</span>
                             </div>
                             <div>
-                              <span style={{ fontSize: "12px", color: "#666666", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Total</span>
-                              <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000" }}>${order.total.toLocaleString()}</span>
+                              <span style={{ fontSize: "12px", color: "var(--text-secondary)", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Total</span>
+                              <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>${order.total.toLocaleString()}</span>
                             </div>
                             <div>
-                              <span style={{ fontSize: "12px", color: "#666666", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Order ID</span>
-                              <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000" }}>{order.id}</span>
+                              <span style={{ fontSize: "12px", color: "var(--text-secondary)", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Order ID</span>
+                              <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>{order.id}</span>
                             </div>
                           </div>
 
@@ -606,7 +607,7 @@ function ProfileContent() {
                             </span>
                             <button
                               onClick={() => setExpandedOrderId(isExpanded ? null : order.id)}
-                              style={{ background: "none", border: "none", color: "#6366f1", cursor: "pointer", fontSize: "14px", fontWeight: 700 }}
+                              style={{ background: "none", border: "none", color: "var(--accent)", cursor: "pointer", fontSize: "14px", fontWeight: 700 }}
                             >
                               {isExpanded ? "Hide Details" : "Track Order"}
                             </button>
@@ -619,38 +620,38 @@ function ProfileContent() {
                             {order.products.map((prod, index) => (
                               <div key={index} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "20px" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                                  <div style={{ position: "relative", width: "60px", height: "60px", borderRadius: "8px", overflow: "hidden", backgroundColor: "#f8f9fa", border: "1px solid #eef0f2" }}>
+                                  <div style={{ position: "relative", width: "60px", height: "60px", borderRadius: "8px", overflow: "hidden", backgroundColor: "var(--bg-secondary)", border: "1px solid var(--border-color)" }}>
                                     <Image src={prod.image} alt={prod.name} fill style={{ objectFit: "cover" }} sizes="60px" />
                                   </div>
                                   <div>
-                                    <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#000000", margin: "0 0 4px 0" }}>{prod.name}</h4>
-                                    <span style={{ fontSize: "12px", color: "#666666" }}>{prod.size} | Qty: {prod.quantity}</span>
+                                    <h4 style={{ fontSize: "15px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 4px 0" }}>{prod.name}</h4>
+                                    <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>{prod.size} | Qty: {prod.quantity}</span>
                                   </div>
                                 </div>
-                                <span style={{ fontSize: "15px", fontWeight: 700, color: "#000000" }}>${(prod.price * prod.quantity).toLocaleString()}</span>
+                                <span style={{ fontSize: "15px", fontWeight: 700, color: "var(--text-primary)" }}>${(prod.price * prod.quantity).toLocaleString()}</span>
                               </div>
                             ))}
                           </div>
 
                           {isExpanded && (
-                            <div style={{ marginTop: "24px", borderTop: "1px solid #eaeaea", paddingTop: "24px", display: "grid", gridTemplateColumns: "2fr 1fr", gap: "32px" }} className="grid-2-col">
+                            <div style={{ marginTop: "24px", borderTop: "1px solid var(--border-color)", paddingTop: "24px", display: "grid", gridTemplateColumns: "2fr 1fr", gap: "32px" }} className="grid-2-col">
                               <div>
-                                <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#000000", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}><Truck size={14} /> Shipping details</h4>
-                                <div style={{ fontSize: "14px", color: "#666666", lineHeight: "1.6" }}>
-                                  <p style={{ margin: "0 0 8px 0" }}><strong style={{ color: "#000000" }}>Recipient:</strong> {order.shippingAddress.name}</p>
-                                  <p style={{ margin: "0 0 8px 0" }}><strong style={{ color: "#000000" }}>Address:</strong> {order.shippingAddress.street}, {order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.zip}</p>
-                                  <p style={{ margin: "0 0 8px 0" }}><strong style={{ color: "#000000" }}>Tracking No:</strong> {order.trackingId} ({order.trackingCourier})</p>
-                                  <p style={{ margin: 0 }}><strong style={{ color: "#000000" }}>Expected Delivery:</strong> {order.estimatedDelivery}</p>
+                                <h4 style={{ fontSize: "15px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}><Truck size={14} /> Shipping details</h4>
+                                <div style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
+                                  <p style={{ margin: "0 0 8px 0" }}><strong style={{ color: "var(--text-primary)" }}>Recipient:</strong> {order.shippingAddress.name}</p>
+                                  <p style={{ margin: "0 0 8px 0" }}><strong style={{ color: "var(--text-primary)" }}>Address:</strong> {order.shippingAddress.street}, {order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.zip}</p>
+                                  <p style={{ margin: "0 0 8px 0" }}><strong style={{ color: "var(--text-primary)" }}>Tracking No:</strong> {order.trackingId} ({order.trackingCourier})</p>
+                                  <p style={{ margin: 0 }}><strong style={{ color: "var(--text-primary)" }}>Expected Delivery:</strong> {order.estimatedDelivery}</p>
                                 </div>
                               </div>
 
                               <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                                <div style={{ fontSize: "14px", color: "#666666", display: "flex", flexDirection: "column", gap: "8px" }}>
+                                <div style={{ fontSize: "14px", color: "var(--text-secondary)", display: "flex", flexDirection: "column", gap: "8px" }}>
                                   <div style={{ display: "flex", justifyContent: "space-between" }}>
                                     <span>Subtotal:</span>
-                                    <span style={{ fontWeight: 600, color: "#000" }}>${order.subtotal.toLocaleString()}</span>
+                                    <span style={{ fontWeight: 600, color: "var(--text-primary)" }}>${order.subtotal.toLocaleString()}</span>
                                   </div>
-                                  <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid #eaeaea", paddingTop: "8px", fontWeight: 700, color: "#000" }}>
+                                  <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid var(--border-color)", paddingTop: "8px", fontWeight: 700, color: "var(--text-primary)" }}>
                                     <span>Total:</span>
                                     <span>${order.total.toLocaleString()}</span>
                                   </div>
@@ -660,7 +661,7 @@ function ProfileContent() {
                                   onClick={() => setCancellingOrder(order)}
                                   style={{
                                     marginTop: "24px",
-                                    backgroundColor: "#fee2e2",
+                                    backgroundColor: "rgba(239, 68, 68, 0.1)",
                                     color: "#ef4444",
                                     border: "none",
                                     padding: "10px 16px",
@@ -684,26 +685,26 @@ function ProfileContent() {
               </div>
             )}
 
-            {/* 3. SAVED ITEMS (WISHLIST) PANEL */}
+             {/* 3. SAVED ITEMS (WISHLIST) PANEL */}
             {activeTab === "saved" && (
               <div>
                 <div style={{ textAlign: "left", marginBottom: "24px" }}>
-                  <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", margin: "0 0 8px 0" }}>Saved Items</h3>
-                  <p style={{ fontSize: "14px", color: "#666666", margin: 0 }}>Review products you saved for later.</p>
+                  <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 8px 0" }}>Saved Items</h3>
+                  <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0 }}>Review products you saved for later.</p>
                 </div>
 
                 {wishlistItems.length === 0 ? (
                   <div style={{
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "var(--bg-card)",
                     borderRadius: "16px",
-                    border: "1px solid #e0e0e0",
+                    border: "1px solid var(--border-color)",
                     padding: "60px 24px",
                     textAlign: "center"
                   }}>
-                    <Heart size={48} color="#cccccc" style={{ marginBottom: "16px" }} />
-                    <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>Your wishlist is empty</h3>
-                    <p style={{ fontSize: "14px", color: "#666666", marginBottom: "24px" }}>Add items from the store to save them here.</p>
-                    <Link href="/shop" style={{ display: "inline-block", backgroundColor: "#000000", color: "#ffffff", padding: "12px 30px", borderRadius: "30px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
+                    <Heart size={48} color="var(--text-secondary)" style={{ marginBottom: "16px" }} />
+                    <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>Your wishlist is empty</h3>
+                    <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "24px" }}>Add items from the store to save them here.</p>
+                    <Link href="/shop" style={{ display: "inline-block", backgroundColor: "var(--text-primary)", color: "var(--bg-primary)", padding: "12px 30px", borderRadius: "30px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
                       Go to Shop
                     </Link>
                   </div>
@@ -711,22 +712,22 @@ function ProfileContent() {
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
                     {wishlistItems.map((prod) => (
                       <div key={prod.id} style={{
-                        backgroundColor: "#ffffff",
+                        backgroundColor: "var(--bg-card)",
                         borderRadius: "12px",
-                        border: "1px solid #e0e0e0",
+                        border: "1px solid var(--border-color)",
                         overflow: "hidden",
                         display: "flex",
                         flexDirection: "column",
                         textAlign: "left"
                       }}>
-                        <div style={{ position: "relative", height: "240px", width: "100%", backgroundColor: "#f8f9fa" }}>
+                        <div style={{ position: "relative", height: "240px", width: "100%", backgroundColor: "var(--bg-secondary)" }}>
                           <Image src={prod.image} alt={prod.name} fill style={{ objectFit: "cover" }} />
                         </div>
                         <div style={{ padding: "20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                          <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#000000", margin: "0 0 6px 0", height: "22px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          <h4 style={{ fontSize: "15px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 6px 0", height: "22px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                             {prod.name}
                           </h4>
-                          <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000", marginBottom: "16px", display: "block" }}>
+                          <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "16px", display: "block" }}>
                             ${prod.numericPrice.toLocaleString()}
                           </span>
 
@@ -738,8 +739,8 @@ function ProfileContent() {
                               }}
                               style={{
                                 flexGrow: 1,
-                                backgroundColor: "#000000",
-                                color: "#ffffff",
+                                backgroundColor: "var(--text-primary)",
+                                color: "var(--bg-primary)",
                                 padding: "10px",
                                 borderRadius: "30px",
                                 border: "none",
@@ -756,12 +757,12 @@ function ProfileContent() {
                                 width: "40px",
                                 height: "40px",
                                 borderRadius: "50%",
-                                border: "1px solid #cccccc",
+                                border: "1px solid var(--border-color)",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
                                 cursor: "pointer",
-                                backgroundColor: "#ffffff"
+                                backgroundColor: "var(--bg-card)"
                               }}
                             >
                               <X size={14} color="#ef4444" />
@@ -779,21 +780,21 @@ function ProfileContent() {
             {activeTab === "history" && (
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 <div style={{ textAlign: "left" }}>
-                  <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", margin: "0 0 8px 0" }}>Purchase History</h3>
-                  <p style={{ fontSize: "14px", color: "#666666", margin: 0 }}>Review all completed and cancelled orders.</p>
+                  <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 8px 0" }}>Purchase History</h3>
+                  <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0 }}>Review all completed and cancelled orders.</p>
                 </div>
 
                 {pastOrders.length === 0 ? (
                   <div style={{
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "var(--bg-card)",
                     borderRadius: "16px",
-                    border: "1px solid #e0e0e0",
+                    border: "1px solid var(--border-color)",
                     padding: "60px 24px",
                     textAlign: "center"
                   }}>
-                    <History size={48} color="#cccccc" style={{ marginBottom: "16px" }} />
-                    <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>No past orders found</h3>
-                    <p style={{ fontSize: "14px", color: "#666666", marginBottom: 0 }}>
+                    <History size={48} color="var(--text-secondary)" style={{ marginBottom: "16px" }} />
+                    <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>No past orders found</h3>
+                    <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: 0 }}>
                       Delivered items and history logs will be archived here.
                     </p>
                   </div>
@@ -802,17 +803,17 @@ function ProfileContent() {
                     const isCancelled = order.status === "Cancelled";
                     return (
                       <div key={order.id} style={{
-                        backgroundColor: "#ffffff",
+                        backgroundColor: "var(--bg-card)",
                         borderRadius: "12px",
-                        border: "1px solid #e0e0e0",
+                        border: "1px solid var(--border-color)",
                         overflow: "hidden",
                         textAlign: "left"
                       }}>
                         {/* Header */}
                         <div style={{
-                          backgroundColor: "#f9fafb",
+                          backgroundColor: "var(--bg-secondary)",
                           padding: "20px 24px",
-                          borderBottom: "1px solid #e0e0e0",
+                          borderBottom: "1px solid var(--border-color)",
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
@@ -821,23 +822,23 @@ function ProfileContent() {
                         }}>
                           <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
                             <div>
-                              <span style={{ fontSize: "12px", color: "#666666", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Date</span>
-                              <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000" }}>{order.date}</span>
+                              <span style={{ fontSize: "12px", color: "var(--text-secondary)", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Date</span>
+                              <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>{order.date}</span>
                             </div>
                             <div>
-                              <span style={{ fontSize: "12px", color: "#666666", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Total Amount</span>
-                              <span style={{ fontSize: "14px", fontWeight: 700, color: "#000" }}>${order.total.toLocaleString()}</span>
+                              <span style={{ fontSize: "12px", color: "var(--text-secondary)", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Total Amount</span>
+                              <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>${order.total.toLocaleString()}</span>
                             </div>
                             <div>
-                              <span style={{ fontSize: "12px", color: "#666666", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Order ID</span>
-                              <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000" }}>{order.id}</span>
+                              <span style={{ fontSize: "12px", color: "var(--text-secondary)", display: "block", textTransform: "uppercase", fontWeight: 700, marginBottom: "4px" }}>Order ID</span>
+                              <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>{order.id}</span>
                             </div>
                           </div>
 
                           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                             <span style={{
-                              backgroundColor: isCancelled ? "#fee2e2" : "#dcfce7",
-                              color: isCancelled ? "#b91c1c" : "#15803d",
+                              backgroundColor: isCancelled ? "rgba(239, 68, 68, 0.1)" : "rgba(16, 185, 129, 0.1)",
+                              color: isCancelled ? "#ef4444" : "#10b981",
                               padding: "6px 14px",
                               borderRadius: "30px",
                               fontSize: "12px",
@@ -853,13 +854,13 @@ function ProfileContent() {
                                 alignItems: "center",
                                 gap: "6px",
                                 backgroundColor: "transparent",
-                                border: "1px solid #cccccc",
+                                border: "1px solid var(--border-color)",
                                 padding: "8px 12px",
                                 borderRadius: "6px",
                                 cursor: "pointer",
                                 fontSize: "12px",
                                 fontWeight: 700,
-                                color: "#000000"
+                                color: "var(--text-primary)"
                               }}
                             >
                               <Receipt size={12} /> Invoice
@@ -873,15 +874,15 @@ function ProfileContent() {
                             {order.products.map((prod, index) => (
                               <div key={index} style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                                  <div style={{ position: "relative", width: "50px", height: "50px", borderRadius: "6px", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+                                  <div style={{ position: "relative", width: "50px", height: "50px", borderRadius: "6px", overflow: "hidden", backgroundColor: "var(--bg-secondary)", border: "1px solid var(--border-color)" }}>
                                     <Image src={prod.image} alt={prod.name} fill style={{ objectFit: "cover" }} sizes="50px" />
                                   </div>
                                   <div>
-                                    <h4 style={{ fontSize: "14px", fontWeight: 700, color: "#000000", margin: "0 0 2px 0" }}>{prod.name}</h4>
-                                    <span style={{ fontSize: "11px", color: "#666666" }}>{prod.size} | Qty: {prod.quantity}</span>
+                                    <h4 style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 2px 0" }}>{prod.name}</h4>
+                                    <span style={{ fontSize: "11px", color: "var(--text-secondary)" }}>{prod.size} | Qty: {prod.quantity}</span>
                                   </div>
                                 </div>
-                                <span style={{ fontSize: "14px", fontWeight: 700, color: "#000000" }}>${(prod.price * prod.quantity).toLocaleString()}</span>
+                                <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)" }}>${(prod.price * prod.quantity).toLocaleString()}</span>
                               </div>
                             ))}
                           </div>
@@ -898,14 +899,14 @@ function ProfileContent() {
               <div>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
                   <div style={{ textAlign: "left" }}>
-                    <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", margin: "0 0 8px 0" }}>Addresses</h3>
-                    <p style={{ fontSize: "14px", color: "#666666", margin: 0 }}>Manage your default billing and shipping addresses.</p>
+                    <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 8px 0" }}>Addresses</h3>
+                    <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0 }}>Manage your default billing and shipping addresses.</p>
                   </div>
                   <button
                     onClick={openAddAddress}
                     style={{
-                      backgroundColor: "#000000",
-                      color: "#ffffff",
+                      backgroundColor: "var(--text-primary)",
+                      color: "var(--bg-primary)",
                       border: "none",
                       padding: "10px 20px",
                       borderRadius: "30px",
@@ -925,10 +926,10 @@ function ProfileContent() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }} className="grid-2-col">
                   {savedAddresses.map((addr) => (
                     <div key={addr.id} style={{
-                      backgroundColor: "#ffffff",
+                      backgroundColor: "var(--bg-card)",
                       borderRadius: "14px",
-                      border: addr.isDefault ? "1px solid #e0e7ff" : "1px solid #f0f0f0",
-                      borderLeft: addr.isDefault ? "4px solid #6366f1" : "1px solid #f0f0f0",
+                      border: addr.isDefault ? "1px solid var(--accent)" : "1px solid var(--border-color)",
+                      borderLeft: addr.isDefault ? "4px solid var(--accent)" : "1px solid var(--border-color)",
                       padding: "24px",
                       textAlign: "left",
                       display: "flex",
@@ -943,12 +944,13 @@ function ProfileContent() {
                       <div>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
                           <span style={{
-                            backgroundColor: "#eaeaea",
-                            color: "#000000",
+                            backgroundColor: "var(--bg-secondary)",
+                            color: "var(--text-primary)",
                             padding: "4px 10px",
                             borderRadius: "4px",
                             fontSize: "12px",
-                            fontWeight: 700
+                            fontWeight: 700,
+                            border: "1px solid var(--border-color)"
                           }} className="address-badge">
                             {addr.type} Address
                           </span>
@@ -959,21 +961,21 @@ function ProfileContent() {
                           )}
                         </div>
 
-                        <h4 style={{ fontSize: "16px", fontWeight: 700, color: "#000000", margin: "0 0 10px 0" }}>{addr.name}</h4>
-                        <p style={{ fontSize: "14px", color: "#666666", margin: "0 0 6px 0", lineHeight: "1.5" }}>{addr.street}</p>
-                        <p style={{ fontSize: "14px", color: "#666666", margin: "0 0 6px 0" }}>{addr.city}, {addr.state} {addr.zip}</p>
-                        <p style={{ fontSize: "14px", color: "#666666", margin: "0 0 16px 0" }}>{addr.country}</p>
-                        <p style={{ fontSize: "13px", color: "#666666", margin: 0 }}><strong style={{ color: "#000" }}>Phone:</strong> {addr.phone}</p>
+                        <h4 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", margin: "0 0 10px 0" }}>{addr.name}</h4>
+                        <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: "0 0 6px 0", lineHeight: "1.5" }}>{addr.street}</p>
+                        <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: "0 0 6px 0" }}>{addr.city}, {addr.state} {addr.zip}</p>
+                        <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: "0 0 16px 0" }}>{addr.country}</p>
+                        <p style={{ fontSize: "13px", color: "var(--text-secondary)", margin: 0 }}><strong style={{ color: "var(--text-primary)" }}>Phone:</strong> {addr.phone}</p>
                       </div>
 
-                      <div style={{ display: "flex", gap: "12px", borderTop: "1px solid #eaeaea", paddingTop: "16px", marginTop: "20px" }}>
+                      <div style={{ display: "flex", gap: "12px", borderTop: "1px solid var(--border-color)", paddingTop: "16px", marginTop: "20px" }}>
                         {!addr.isDefault && (
                           <button
                             onClick={() => handleSetDefaultAddress(addr.id, addr.type)}
                             style={{
                               background: "none",
                               border: "none",
-                              color: "#6366f1",
+                              color: "var(--accent)",
                               cursor: "pointer",
                               fontSize: "13px",
                               fontWeight: 700,
@@ -988,7 +990,7 @@ function ProfileContent() {
                           style={{
                             background: "none",
                             border: "none",
-                            color: "#4b5563",
+                            color: "var(--text-secondary)",
                             cursor: "pointer",
                             fontSize: "13px",
                             fontWeight: 700,
@@ -1029,7 +1031,7 @@ function ProfileContent() {
                   <div style={{
                     position: "fixed",
                     inset: 0,
-                    backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
                     backdropFilter: "blur(8px)",
                     WebkitBackdropFilter: "blur(8px)",
                     zIndex: 100000,
@@ -1041,82 +1043,83 @@ function ProfileContent() {
                     <div style={{
                       maxWidth: "500px",
                       width: "100%",
-                      backgroundColor: "#ffffff",
+                      backgroundColor: "var(--bg-card)",
                       borderRadius: "16px",
                       padding: "32px",
                       boxShadow: "0 15px 50px rgba(0, 0, 0, 0.2)",
+                      border: "1px solid var(--border-color)",
                       textAlign: "left"
                     }}>
-                      <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", marginBottom: "20px", fontFamily: "var(--font-inter)" }}>
+                      <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "20px", fontFamily: "var(--font-inter)" }}>
                         {editingAddress ? "Edit Address" : "Add Address"}
                       </h3>
 
                       <form onSubmit={handleSaveAddress} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                           <div>
-                            <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>Type</label>
+                            <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>Type</label>
                             <select 
                               value={addrType}
                               onChange={(e) => setAddrType(e.target.value as any)}
-                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                             >
                               <option value="Shipping">Shipping</option>
                               <option value="Billing">Billing</option>
                             </select>
                           </div>
                           <div>
-                            <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>Recipient Name</label>
+                            <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>Recipient Name</label>
                             <input 
                               type="text" 
                               required 
                               value={addrName}
                               onChange={(e) => setAddrName(e.target.value)}
-                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                             />
                           </div>
                         </div>
 
                         <div>
-                          <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>Street Address</label>
+                          <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>Street Address</label>
                           <input 
                             type="text" 
                             required 
                             value={addrStreet}
                             onChange={(e) => setAddrStreet(e.target.value)}
-                            style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                            style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                           />
                         </div>
 
                         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                           <div>
-                            <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>Town / City</label>
+                            <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>Town / City</label>
                             <input 
                               type="text" 
                               required 
                               value={addrCity}
                               onChange={(e) => setAddrCity(e.target.value)}
-                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                             />
                           </div>
                           <div>
-                            <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>ZIP Code</label>
+                            <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>ZIP Code</label>
                             <input 
                               type="text" 
                               required 
                               value={addrZip}
                               onChange={(e) => setAddrZip(e.target.value)}
-                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                             />
                           </div>
                         </div>
 
                         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                           <div>
-                            <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>State</label>
+                            <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>State</label>
                             <select 
                               value={addrState}
                               onChange={(e) => setAddrState(e.target.value)}
-                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                             >
                               <option>Ohio</option>
                               <option>California</option>
@@ -1126,13 +1129,13 @@ function ProfileContent() {
                             </select>
                           </div>
                           <div>
-                            <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "4px", fontWeight: 600 }}>Phone Number</label>
+                            <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px", fontWeight: 600 }}>Phone Number</label>
                             <input 
                               type="tel" 
                               required 
                               value={addrPhone}
                               onChange={(e) => setAddrPhone(e.target.value)}
-                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px" }}
+                              style={{ width: "100%", padding: "10px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px" }}
                             />
                           </div>
                         </div>
@@ -1143,13 +1146,13 @@ function ProfileContent() {
                             onClick={() => setAddressFormOpen(false)}
                             style={{
                               flex: 1,
-                              backgroundColor: "#f3f4f6",
-                              color: "#4b5563",
+                              backgroundColor: "var(--bg-secondary)",
+                              color: "var(--text-secondary)",
                               padding: "12px",
                               borderRadius: "30px",
                               fontWeight: 700,
                               cursor: "pointer",
-                              border: "none",
+                              border: "1px solid var(--border-color)",
                               fontSize: "14px",
                               textAlign: "center"
                             }}
@@ -1160,8 +1163,8 @@ function ProfileContent() {
                             type="submit"
                             style={{
                               flex: 1,
-                              backgroundColor: "#000000",
-                              color: "#ffffff",
+                              backgroundColor: "var(--text-primary)",
+                              color: "var(--bg-primary)",
                               padding: "12px",
                               borderRadius: "30px",
                               fontWeight: 700,
@@ -1184,22 +1187,22 @@ function ProfileContent() {
             {/* 6. SETTINGS PANEL */}
             {activeTab === "settings" && (
               <div style={{
-                backgroundColor: "#ffffff",
+                backgroundColor: "var(--bg-card)",
                 borderRadius: "16px",
-                border: "1px solid #e0e0e0",
+                border: "1px solid var(--border-color)",
                 padding: "36px",
                 textAlign: "left"
               }}>
-                <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", marginBottom: "8px", fontFamily: "var(--font-inter)" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px", fontFamily: "var(--font-inter)" }}>
                   Settings
                 </h3>
-                <p style={{ fontSize: "14px", color: "#666666", marginBottom: "32px" }}>
+                <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "32px" }}>
                   Manage account security and notification preferences.
                 </p>
 
                 {isSettingsSavedMessage && (
                   <div style={{
-                    backgroundColor: "#e8f8f0",
+                    backgroundColor: "rgba(16, 185, 129, 0.1)",
                     color: "#10b981",
                     padding: "12px 18px",
                     borderRadius: "6px",
@@ -1214,28 +1217,28 @@ function ProfileContent() {
                 <form onSubmit={handleSaveSettings} style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
                   {/* Security Fields */}
                   <div>
-                    <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#000000", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <h4 style={{ fontSize: "15px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
                       <Lock size={12} /> Security & Password
                     </h4>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }} className="grid-2-col">
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>New Password</label>
+                        <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>New Password</label>
                         <input 
                           type="password" 
                           placeholder="••••••••"
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
-                          style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none" }}
+                          style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none" }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>Confirm New Password</label>
+                        <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>Confirm New Password</label>
                         <input 
                           type="password" 
                           placeholder="••••••••"
                           value={confirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}
-                          style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none" }}
+                          style={{ width: "100%", padding: "12px 16px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none" }}
                         />
                       </div>
                     </div>
@@ -1243,25 +1246,25 @@ function ProfileContent() {
 
                   {/* Preferences Fields */}
                   <div>
-                    <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#000000", marginBottom: "16px" }}>
+                    <h4 style={{ fontSize: "15px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "16px" }}>
                       Notification Preferences
                     </h4>
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                      <label style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#4b5563", cursor: "pointer" }}>
+                      <label style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "var(--text-secondary)", cursor: "pointer" }}>
                         <input 
                           type="checkbox" 
                           checked={emailNotifications}
                           onChange={(e) => setEmailNotifications(e.target.checked)}
-                          style={{ width: "16px", height: "16px", accentColor: "#000" }}
+                          style={{ width: "16px", height: "16px", accentColor: "var(--accent)" }}
                         />
                         Receive emails about updates, orders, and coupons
                       </label>
-                      <label style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#4b5563", cursor: "pointer" }}>
+                      <label style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "var(--text-secondary)", cursor: "pointer" }}>
                         <input 
                           type="checkbox" 
                           checked={smsNotifications}
                           onChange={(e) => setSmsNotifications(e.target.checked)}
-                          style={{ width: "16px", height: "16px", accentColor: "#00" }}
+                          style={{ width: "16px", height: "16px", accentColor: "var(--accent)" }}
                         />
                         Receive SMS tracking notifications
                       </label>
@@ -1273,8 +1276,8 @@ function ProfileContent() {
                     <button
                       type="submit"
                       style={{
-                        backgroundColor: "#000000",
-                        color: "#ffffff",
+                        backgroundColor: "var(--text-primary)",
+                        color: "var(--bg-primary)",
                         padding: "14px 40px",
                         borderRadius: "30px",
                         fontWeight: 700,
@@ -1290,7 +1293,7 @@ function ProfileContent() {
                       type="button"
                       onClick={() => alert("Please contact support to delete your profile account.")}
                       style={{
-                        backgroundColor: "#fee2e2",
+                        backgroundColor: "rgba(239, 68, 68, 0.1)",
                         color: "#ef4444",
                         border: "none",
                         padding: "14px 24px",
@@ -1317,7 +1320,7 @@ function ProfileContent() {
           <div style={{
             position: "fixed",
             inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
             zIndex: 100000,
@@ -1329,26 +1332,27 @@ function ProfileContent() {
             <div style={{
               maxWidth: "440px",
               width: "100%",
-              backgroundColor: "#ffffff",
+              backgroundColor: "var(--bg-card)",
               borderRadius: "16px",
               padding: "32px",
               boxShadow: "0 15px 50px rgba(0, 0, 0, 0.2)",
+              border: "1px solid var(--border-color)",
               textAlign: "left"
             }}>
-              <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#000000", marginBottom: "12px", fontFamily: "var(--font-inter)" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "12px", fontFamily: "var(--font-inter)" }}>
                 Cancel Order {cancellingOrder.id}
               </h3>
-              <p style={{ fontSize: "14px", color: "#666666", marginBottom: "20px", lineHeight: "1.5" }}>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "20px", lineHeight: "1.5" }}>
                 Are you sure you want to cancel this order? Please provide a brief reason for the cancellation.
               </p>
 
               <div style={{ marginBottom: "24px" }}>
-                <label style={{ display: "block", fontSize: "12px", color: "#666666", marginBottom: "6px", fontWeight: 600 }}>Reason for cancellation</label>
+                <label style={{ display: "block", fontSize: "12px", color: "var(--text-secondary)", marginBottom: "6px", fontWeight: 600 }}>Reason for cancellation</label>
                 <textarea 
                   placeholder="e.g., Ordered wrong size, changed my mind" 
                   value={cancelReason}
                   onChange={(e) => setCancelReason(e.target.value)}
-                  style={{ width: "100%", padding: "12px 14px", borderRadius: "6px", border: "1px solid #cccccc", backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", outline: "none", minHeight: "80px", fontFamily: "inherit" }}
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: "6px", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-primary)", fontSize: "14px", outline: "none", minHeight: "80px", fontFamily: "inherit" }}
                 />
               </div>
 
@@ -1357,13 +1361,13 @@ function ProfileContent() {
                   onClick={() => setCancellingOrder(null)}
                   style={{
                     flex: 1,
-                    backgroundColor: "#f3f4f6",
-                    color: "#4b5563",
+                    backgroundColor: "var(--bg-secondary)",
+                    color: "var(--text-secondary)",
                     padding: "12px",
                     borderRadius: "30px",
                     fontWeight: 700,
                     cursor: "pointer",
-                    border: "none",
+                    border: "1px solid var(--border-color)",
                     fontSize: "14px",
                     textAlign: "center"
                   }}
@@ -1432,8 +1436,8 @@ function ProfileContent() {
 export default function ProfilePage() {
   return (
     <Suspense fallback={
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f8f9fa" }}>
-        <p style={{ color: "#000", fontSize: "16px", fontWeight: "bold" }}>Loading profile...</p>
+      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "var(--bg-secondary)" }}>
+        <p style={{ color: "var(--text-primary)", fontSize: "16px", fontWeight: "bold" }}>Loading profile...</p>
       </div>
     }>
       <ProfileContent />
