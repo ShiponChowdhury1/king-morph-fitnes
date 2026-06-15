@@ -113,6 +113,7 @@ export default function FeaturesContent() {
               style={{ objectFit: "contain", width: "100%", height: "auto", maxWidth: "480px" }}
               sizes="(max-width: 992px) 100vw, 540px"
               priority
+              quality={80}
             />
           </div>
           <div className="features-section-text">
@@ -378,6 +379,7 @@ export default function FeaturesContent() {
               height={450}
               style={{ objectFit: "contain", width: "100%", height: "auto", maxWidth: "480px" }}
               sizes="(max-width: 992px) 100vw, 540px"
+              quality={80}
             />
           </div>
         </div>
@@ -554,6 +556,7 @@ export default function FeaturesContent() {
               height={450}
               style={{ objectFit: "contain", width: "100%", height: "auto", maxWidth: "480px" }}
               sizes="(max-width: 992px) 100vw, 540px"
+              quality={80}
             />
           </div>
           <div className="features-section-text">
@@ -632,6 +635,7 @@ export default function FeaturesContent() {
               height={450}
               style={{ objectFit: "contain", width: "100%", height: "auto", maxWidth: "480px" }}
               sizes="(max-width: 992px) 100vw, 540px"
+              quality={80}
             />
           </div>
           <div className="features-section-text">
@@ -669,6 +673,7 @@ export default function FeaturesContent() {
               height={450}
               style={{ objectFit: "contain", width: "100%", height: "auto", maxWidth: "480px" }}
               sizes="(max-width: 992px) 100vw, 540px"
+              quality={80}
             />
           </div>
           <div className="features-section-text">
@@ -741,6 +746,7 @@ export default function FeaturesContent() {
               height={450}
               style={{ objectFit: "contain", width: "100%", height: "auto", maxWidth: "480px" }}
               sizes="(max-width: 992px) 100vw, 540px"
+              quality={80}
             />
           </div>
         </div>

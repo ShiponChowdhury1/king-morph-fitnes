@@ -35,6 +35,7 @@ export default function ShopSection() {
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 50vw, 25vw"
+                  quality={80}
                 />
               </Link>
               <button

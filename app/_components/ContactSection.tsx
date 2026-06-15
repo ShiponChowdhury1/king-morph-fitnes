@@ -22,7 +22,7 @@ export default function ContactSection() {
             <input
               type="text"
               id="contact-name"
-              placeholder="Jane Doe"
+              placeholder=" Your Full Name"
               autoComplete="name"
             />
           </div>
@@ -32,7 +32,7 @@ export default function ContactSection() {
             <input
               type="email"
               id="contact-email"
-              placeholder="example@gmail.com"
+              placeholder="Enter your email address"
               autoComplete="email"
             />
           </div>

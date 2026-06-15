@@ -11,6 +11,8 @@ export default function HeroSection() {
           fill
           style={{ objectFit: "cover" }}
           priority
+          sizes="100vw"
+          quality={80}
         />
       </div>
 

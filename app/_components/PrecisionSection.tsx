@@ -79,6 +79,8 @@ export default function PrecisionSection() {
             width={480}
             height={560}
             style={{ objectFit: "contain", borderRadius: "24px" }}
+            sizes="(max-width: 768px) 100vw, 480px"
+            quality={80}
           />
         </div>
       </div>

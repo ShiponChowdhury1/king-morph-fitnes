@@ -40,6 +40,7 @@ export default function MattersSection() {
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={80}
                 />
               </div>
               <div className="morph-card-overlay" />

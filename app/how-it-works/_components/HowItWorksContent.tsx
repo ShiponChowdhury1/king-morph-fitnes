@@ -249,6 +249,7 @@ export default function HowItWorksContent() {
                     height={450}
                     style={{ objectFit: "contain", width: "100%", height: "auto" }}
                     sizes="(max-width: 768px) 100vw, 600px"
+                    quality={80}
                   />
                 </div>
               </>
@@ -262,6 +263,7 @@ export default function HowItWorksContent() {
                     height={450}
                     style={{ objectFit: "contain", width: "100%", height: "auto" }}
                     sizes="(max-width: 768px) 100vw, 600px"
+                    quality={80}
                   />
                 </div>
                 <div className="how-work-section-text">
@@ -438,6 +440,7 @@ export default function HowItWorksContent() {
               height={450}
               style={{ objectFit: "contain", width: "100%", height: "auto" }}
               sizes="(max-width: 768px) 100vw, 600px"
+              quality={80}
             />
           </div>
         </div>
